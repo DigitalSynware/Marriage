@@ -53,7 +53,9 @@ public class CommandMarry extends Command {
             }
 
             marriage.marry(mp1, mp2);
+            broadcast("");
             broadcast(Message.MARRIED, player1.getName(), player2.getName());
+            broadcast("");
         } else {
             Player target = getArgAsPlayer(-1);
 
@@ -97,7 +99,9 @@ public class CommandMarry extends Command {
                 marriage.marry(mTarget, mPlayer);
                 player.setMetadata("marriedTo", new FixedMetadataValue(marriage.getPlugin(), target.getName()));
                 target.setMetadata("marriedTo", new FixedMetadataValue(marriage.getPlugin(), player.getName()));
+                broadcast("");
                 broadcast(Message.MARRIED, player.getName(), target.getName());
+                broadcast("");
             } else if(!mTarget.isMarriageRequested(player.getUniqueId())) {
                 if(!hasFee()) {
                     reply(Message.INSUFFICIENT_MONEY, marriage.dependencies().getEconomyService().format(getExecutionFee()));
