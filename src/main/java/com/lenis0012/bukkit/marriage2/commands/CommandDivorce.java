@@ -34,6 +34,8 @@ public class CommandDivorce extends Command {
             target.removeMetadata("marriedTo", marriage.getPlugin());
         }
 
+        broadcast("");
         broadcast(Message.DIVORCED, player.getName(), Bukkit.getOfflinePlayer(partner.getUniqueId()).getName());
+        broadcast("");
     }
 }
